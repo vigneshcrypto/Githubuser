@@ -43,4 +43,27 @@ export class UserService {
 			catchError(this.formatErrors.bind(this))
 		);
 	}
+	getSearchUserList(params){
+		let path = '/search/users';
+		let baseUrl = environment.api_url;
+
+		return this.http.get(`${baseUrl}${path}${params}`, {headers: headers }).pipe(
+			map((res: Response) => {
+				return res;
+			}),
+			catchError(this.formatErrors.bind(this))
+		);
+	}
+
+	getUserData(params,name){
+		let path = '/users/'+name;
+		let baseUrl = environment.api_url;
+
+		return this.http.get(`${baseUrl}${path}${params}`, {headers: headers }).pipe(
+			map((res: Response) => {
+				return res;
+			}),
+			catchError(this.formatErrors.bind(this))
+		);
+	}
 }

@@ -1,3 +1,51 @@
-<p>
-  user works!
-</p>
+<!-- user list -->
+<h2 *ngIf="!repoList">Github user list</h2>
+<div *ngIf="!repoList">
+	<input type="text" name="search" placeholder="Search user" (keyup)="searchUser($event.target.value)"/>
+	<table class="search-results"
+	infiniteScroll
+	[infiniteScrollDistance]="2"
+	[infiniteScrollThrottle]="50"
+	(scrolled)="onScroll()">
+		<thead>
+			<th>
+				User image
+			</th>
+			<th>
+				Login name
+			</th>
+			<th>User name</th>
+			<th>Followers count</th>
+			<th>Public repos</th>
+		</thead>
+		<tbody *ngFor="let item of userDataList">
+			<td>
+				<img class="img" [src]="item?.avatar_url"/>
+			</td>
+			<td>
+				<a (click)="getUserRepos(item?.login)">{{item?.login | titlecase}}</a>
+			</td>
+			<td>{{item.name}}</td>
+			<td>{{item.followers}}</td>
+			<td><a (click)="getUserRepos(item?.login)">{{item.public_repos}}</a></td>
+		</tbody>
+	</table>    
+</div>
+<!-- Repo list  -->
+<h2 *ngIf="repoList">{{userName | titlecase}} repos list</h2>
+<div *ngIf="repoList">
+	<a class="btn btn-primary float-right" (click)="back()">back</a>
+	<table>
+		<thead>
+			<th>
+				Repo name
+			</th>
+		</thead>
+		<tbody *ngFor="let item of userRepoList | paginate: { itemsPerPage: 10, currentPage: page }">
+			<td>
+				<a>{{item?.name | titlecase}}</a>
+			</td>
+		</tbody>
+	</table>		
+	<pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
