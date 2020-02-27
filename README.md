@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## npm
+Here i am using below npms:
+"ng-http-loader",
+"ngx-infinite-scroll",
+"ngx-pagination".
+
+So kindly run `npm install` command before run the project.
+
+In user list pagination implemented by using ngx-infinite-scroll npm.So while you scroll the page list automatically update with new datas.In repos list ngx pagination implemented.
