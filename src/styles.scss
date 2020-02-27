@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.ngx-pagination{
+    text-align: right;
+    li{
+        font:13px/23px Arial, Helvetica, sans-serif;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+    }
+    
+}
+.ngx-pagination .current{
+    font:13px/23px Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;  
+}
